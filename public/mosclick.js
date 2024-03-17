@@ -1,4 +1,5 @@
 
+
 function clickEffect() {
   let balls = [];
   let longPressed = false;
@@ -15,30 +16,19 @@ function clickEffect() {
   const pointer = document.createElement("span");
   pointer.classList.add("pointer");
   document.body.appendChild(pointer);
- 
+
   if (canvas.getContext && window.addEventListener) {
     ctx = canvas.getContext("2d");
     updateSize();
     window.addEventListener('resize', updateSize, false);
     loop();
-    window.addEventListener("mousedown", function(e) {
-      pushBalls(randBetween(10, 20), e.clientX, e.clientY);
-      document.body.classList.add("is-pressed");
-      longPress = setTimeout(function(){
-        document.body.classList.add("is-longpress");
-        longPressed = true;
-      }, 500);
+    window.addEventListener("mousedown", function (e) {
+      miniBoom(e.clientX, e.clientY)
     }, false);
-    window.addEventListener("mouseup", function(e) {
-      clearInterval(longPress);
-      if (longPressed == true) {
-        document.body.classList.remove("is-longpress");
-        pushBalls(randBetween(50 + Math.ceil(multiplier), 100 + Math.ceil(multiplier)), e.clientX, e.clientY);
-        longPressed = false;
-      }
-      document.body.classList.remove("is-pressed");
+    window.addEventListener("mouseup", function (e) {
+      bigBoom(e.clientX, e.clientY)
     }, false);
-    window.addEventListener("mousemove", function(e) {
+    window.addEventListener("mousemove", function (e) {
       let x = e.clientX;
       let y = e.clientY;
       pointer.style.top = y + "px";
@@ -47,10 +37,10 @@ function clickEffect() {
   } else {
     console.log("canvas or addEventListener is unsupported!");
   }
- 
- 
+
+
   function updateSize() {
-    canvas.width = window.innerWidth ;
+    canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
     canvas.style.width = window.innerWidth + 'px';
     canvas.style.height = window.innerHeight + 'px';
@@ -91,17 +81,17 @@ function clickEffect() {
       this.vy *= 0.9;
     }
   }
- 
+
   function pushBalls(count = 1, x = origin.x, y = origin.y) {
     for (let i = 0; i < count; i++) {
       balls.push(new Ball(x, y));
     }
   }
- 
+
   function randBetween(min, max) {
     return Math.floor(Math.random() * max) + min;
   }
- 
+
   function loop() {
     ctx.fillStyle = "rgba(255, 255, 255, 0)";
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -122,7 +112,7 @@ function clickEffect() {
     removeBall();
     requestAnimationFrame(loop);
   }
- 
+
   function removeBall() {
     for (let i = 0; i < balls.length; i++) {
       let b = balls[i];
@@ -131,6 +121,49 @@ function clickEffect() {
       }
     }
   }
+
+  function miniBoom(x, y) {
+    pushBalls(randBetween(10, 20), x, y);
+    document.body.classList.add("is-pressed");
+    longPress = setTimeout(function () {
+      document.body.classList.add("is-longpress");
+      longPressed = true;
+    }, 500);
+  }
+
+  function bigBoom(x, y) {
+    clearInterval(longPress);
+    if (longPressed == true) {
+      document.body.classList.remove("is-longpress");
+      pushBalls(randBetween(50 + Math.ceil(multiplier), 100 + Math.ceil(multiplier)), x, y);
+      longPressed = false;
+    }
+    document.body.classList.remove("is-pressed");
+  }
+
+  function ranBoom(x, y, time) {
+    miniBoom(x, y)
+    setTimeout(() => {
+      bigBoom(x, y)
+    }, time)
+  }
+  function onloadFun() {
+    let x = window.innerWidth;
+    let y = window.innerHeight;
+
+    ranBoom(x * 0.35 - x * 0.05 + randBetween(0, x * 0.10), y * 0.35 - y * 0.05 + randBetween(0, y * 0.10), 100)
+    setTimeout(() => {
+      miniBoom(x * 0.65 - x * 0.05 + randBetween(0, x * 0.10), y * 0.35 - y * 0.05 + randBetween(0, y * 0.10))
+      setTimeout(() => {
+        bigBoom(x * 0.5 - x * 0.05 + randBetween(0, x * 0.10), y * 0.2 - y * 0.025 + randBetween(0, y * 0.05))
+      }, 501);
+    }, 300);
+
+
+  }
+
+  window.onload = onloadFun();
+
 }
 clickEffect();//调用特效函数
 

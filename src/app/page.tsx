@@ -8,12 +8,11 @@ export default function Page() {
   // ClickEffect();
   return (
     <main className=" flex min-h-screen flex-col items-center justify-between p-24 ">
-      <Script src="./assembly/mosclick.js" type="text/javascript"></Script>
-      <Header/>
+      <Header />
 
-      <ContentImages/>
+      <ContentImages />
 
-      <Footer/>
+      <Footer />
     </main>
   );
 }

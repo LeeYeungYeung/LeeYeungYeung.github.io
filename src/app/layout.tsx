@@ -13,11 +13,12 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  
+
   return (
     <html lang="en">
       <body className={inter.className}>{children}
-      <Script strategy="beforeInteractive" type="text/javascript" src="mosclick.js"></Script></body>
+        <Script type="text/javascript" src="mosclick.js" />
+      </body>
     </html>
   );
 }
