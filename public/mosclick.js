@@ -147,6 +147,7 @@ function clickEffect() {
       bigBoom(x, y)
     }, time)
   }
+
   function onloadFun() {
     let x = window.innerWidth;
     let y = window.innerHeight;
@@ -162,8 +163,27 @@ function clickEffect() {
 
   }
 
-  window.onload = onloadFun();
 
+  let fun = function () {
+    let x = window.innerWidth;
+    let y = window.innerHeight;
+    let rand = randBetween(0, 3);
+    if (rand < 2) {
+      console.log(rand);
+      ranBoom(x * 0.1 + randBetween(0, x * 0.8), y * 0.1 + randBetween(0, y * 0.50), 100)
+    } else {
+      console.log('nono');
+      miniBoom(x * 0.1 + randBetween(0, x * 0.8), y * 0.1 + randBetween(0, y * 0.50))
+      setTimeout(() => {
+        bigBoom(x * 0.1 + randBetween(0, x * 0.8), y * 0.1 + randBetween(0, y * 0.50))
+      }, 501);
+    }
+
+
+  }
+  setInterval(fun, 3000)
+  window.onload = onloadFun();
 }
+
 clickEffect();//调用特效函数
 
