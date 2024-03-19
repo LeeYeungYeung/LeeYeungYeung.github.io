@@ -23,8 +23,6 @@ export default function RootLayout({
         <Toaster position="top-center" />
         {children}
         <Script type="text/javascript" src="mosclick.js" />
-
-
       </body>
     </html >
   )
