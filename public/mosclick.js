@@ -181,7 +181,7 @@ function clickEffect() {
 
 
   }
-  setInterval(fun, 3000)
+  setInterval(fun, 2000)
   window.onload = onloadFun();
 }
 

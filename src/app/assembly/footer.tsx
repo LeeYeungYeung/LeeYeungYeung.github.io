@@ -1,7 +1,12 @@
-"use client"
+import FooterLogo from "./footerlink"
+import Image from "next/image"
 export default function Footer() {
     return (
-        <div className=" mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-1 lg:text-left">
+        <div className="flex items-stretch space-x-5">
+
+            <FooterLogo href="https://github.com/LeeyeungYeung" imgUrl="/github-mark.svg" />
+            {/* <FooterLogo href="https://y.qq.com/n/ryqq/profile/like/song?uin=owvF7i4Aoios7n**" imgUrl="/qq-music-1.svg" /> */}
+            <FooterLogo href="https://www.douyin.com/user/MS4wLjABAAAAFwyxysvf4C3zw_4N25SRuHMBLRbLDWfOMvlB35lAxX0?showTab=like" imgUrl="/tiktok-svgrepo-com.svg" />
         </div>
     )
 }
