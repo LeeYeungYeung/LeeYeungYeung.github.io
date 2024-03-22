@@ -1,4 +1,4 @@
-import { url } from "inspector";
+"use client"
 import Image from "next/image";
 export default function FooterLogo(
     { href, imgUrl }:
