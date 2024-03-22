@@ -1,5 +1,3 @@
-
-
 function clickEffect() {
   let balls = [];
   let longPressed = false;
@@ -169,10 +167,8 @@ function clickEffect() {
     let y = window.innerHeight;
     let rand = randBetween(0, 3);
     if (rand < 2) {
-      console.log(rand);
       ranBoom(x * 0.1 + randBetween(0, x * 0.8), y * 0.1 + randBetween(0, y * 0.50), 100)
     } else {
-      console.log('nono');
       miniBoom(x * 0.1 + randBetween(0, x * 0.8), y * 0.1 + randBetween(0, y * 0.50))
       setTimeout(() => {
         bigBoom(x * 0.1 + randBetween(0, x * 0.8), y * 0.1 + randBetween(0, y * 0.50))

@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="flex items-stretch space-x-5">
 
             <FooterLogo href="https://github.com/LeeyeungYeung" imgUrl="/github-mark.svg" />
-            {/* <FooterLogo href="https://y.qq.com/n/ryqq/profile/like/song?uin=owvF7i4Aoios7n**" imgUrl="/qq-music-1.svg" /> */}
+
             <FooterLogo href="https://www.douyin.com/user/MS4wLjABAAAAFwyxysvf4C3zw_4N25SRuHMBLRbLDWfOMvlB35lAxX0?showTab=like" imgUrl="/tiktok-svgrepo-com.svg" />
         </div>
     )

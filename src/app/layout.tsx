@@ -1,4 +1,4 @@
-"use cli"
+
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Script from "next/script";
@@ -17,12 +17,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
 
+
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Toaster position="top-center" />
-        {children}
+        <Toaster />
         <Script type="text/javascript" src="mosclick.js" />
+        {children}
       </body>
     </html >
   )
