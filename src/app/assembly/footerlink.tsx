@@ -5,7 +5,7 @@ export default function FooterLogo(
         { href: string, imgUrl: string }) {
     return (
 
-        <a href={href} >
+        <a href={href} target="_blank">
             <Image
                 className="relative self-center rounded transition ease-in-out hover:-translate hover:scale-110  duration-300"
                 src={imgUrl}
