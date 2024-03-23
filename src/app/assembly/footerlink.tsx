@@ -1,8 +1,8 @@
 "use client"
 import Image from "next/image";
-export default function FooterLogo(
-    { href, imgUrl }:
-        { href: string, imgUrl: string }) {
+export default function FooterLogo
+    ({ href, imgUrl }
+        : { href: string, imgUrl: string }) {
     return (
 
         <a href={href} target="_blank">
