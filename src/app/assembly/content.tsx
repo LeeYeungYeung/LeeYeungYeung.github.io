@@ -6,7 +6,7 @@ export default function ContentImages() {
     <div className="items-center">
       <a
         className="grid justify-items-center"
-        href="https://github.com/LeeYeungYeung"
+        href="https://LeeYeungYeung.github.io/law"
         target="_blank">
 
         <Image
@@ -19,7 +19,7 @@ export default function ContentImages() {
         />
       </a>
       <div className=" mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-1 lg:text-center">
-        <TextBox title={'About Me'} content={'Welcome to my website!\n '} url={"https://github.com/LeeYeungYeung"} />
+        <TextBox title={'About Me'} content={'Welcome to my website!\n '} url={"https://LeeYeungYeung.github.io/law"} />
       </div>
 
 
